@@ -14,7 +14,7 @@ pipeline {
         stage ('Building Image') {
             steps {
                 script {
-                    sh 'docker build -t harshakuchu/data-persistence .'
+                    sh 'sudo docker build -t harshakuchu/data-persistence .'
                 }
             }
         }
