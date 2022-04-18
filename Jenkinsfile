@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage ('Cloning Git') {
             steps {
-                git 'https://github.com/harshakuchu/data-persistence-sample.git'
+                git branch: 'main', url: 'https://github.com/harshakuchu/data-persistence-sample.git'
             }
         }
         stage ('Building Image') {
