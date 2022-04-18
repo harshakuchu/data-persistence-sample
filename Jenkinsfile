@@ -14,14 +14,14 @@ pipeline {
         stage ('Building Image') {
             steps {
                 script {
-                    sh 'sudo docker build -t harshakuchu/data-persistence .'
+                    dockerImage = docker.build registry
                 }
             }
         }
         stage ('Deploy Image') {
             steps {
                 script {
-                    withDockerRegistry('',registryCredential) {
+                     docker.withRegistry( '', registryCredential ) {
                         dockerImage.push()
                     }
                 }
