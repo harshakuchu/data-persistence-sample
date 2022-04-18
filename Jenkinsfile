@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        registry = "harshakuchu/harsha_kuchu"
+        registry = "harshakuchu/app01"
         registryCredential = 'docker-creds'
         dockerImage = ''
     }
