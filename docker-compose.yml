@@ -8,6 +8,8 @@ services:
       - '80:80'
     environment:
       - MONGO_DB_CONNECTION_STRING=mongodb://mongodb:27017/sample
+    stdin_open: true
+    tty: true
     links:
       - mongo
   mongo:
@@ -15,5 +17,3 @@ services:
     image: mongo
     ports:
       - '8123:27017'
-  stdin_open: true
-  tty: true
