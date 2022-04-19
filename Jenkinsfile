@@ -18,7 +18,7 @@ pipeline {
                 }
             }
         }
-        stage ('Deploy Image') {
+        stage ('Push Image') {
             steps {
                 script {
                      docker.withRegistry( '', registryCredential ) {
@@ -29,7 +29,7 @@ pipeline {
         }
         stage ('Deploy') {
             steps {
-                sh 'sudo docker-compose up -d'
+                sh 'sudo docker-compose up'
             }
         }
     }
