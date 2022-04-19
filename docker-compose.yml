@@ -5,7 +5,7 @@ services:
     restart: always
     build: .
     ports:
-      - '90:8001'
+      - '90:80'
     volumes:
       - .:/home/node/app
       - node_modules:/home/node/app/node_modules
@@ -28,9 +28,8 @@ services:
       - app-network
  
  networks:
-    app-network:
-      driver: bridge
+    app-network: {}
     
  volumes:
-  dbdata:
-  node_modules:
+  dbdata: {}
+  node_modules: {}
