@@ -5,7 +5,12 @@ services:
     restart: always
     build: .
     ports:
-      - '80:80'
+      - '90:8001'
+    volumes:
+      - .:/home/node/app
+      - node_modules:/home/node/app/node_modules
+    networks:
+      - app-network
     environment:
       - MONGO_DB_CONNECTION_STRING=mongodb://mongodb:27017/sample
     stdin_open: true
@@ -17,3 +22,15 @@ services:
     image: mongo
     ports:
       - '27017:27017'
+    volumes:     
+      - dbdata:/data/db
+    networks:
+      - app-network
+ 
+ networks:
+  app-network:
+    driver: bridge
+    
+ volumes:
+  dbdata:
+  node_modules:
